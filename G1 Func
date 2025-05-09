@@ -2,7 +2,7 @@ local G1 = {}
 
 function G1.UICorner(Parent,Val)
     local UICorner = Instance.new("UICorner")
-    UICorner.CornerRadius = UDim.new(Val)
+    UICorner.CornerRadius = Val
     UICorner.Parent = Parent
     return UICorner
 end
