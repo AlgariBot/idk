@@ -1,0 +1,38 @@
+local G1 = {}
+
+function G1.UICorner(Parent,Val)
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(Val)
+    UICorner.Parent = Parent
+    return UICorner
+end
+
+function G1.UILine(Parent,Value,Color)
+    local UILine = Instance.new("UIStroke")
+    UILine.Color = Color
+    UILine.Thickness = Value
+    UILine.Parent = Parent
+    return UILine
+end
+
+function G1.TweenPosition(ui, dur, pos)
+	game:GetService("TweenService"):Create(ui, TweenInfo.new(dur), {Position = pos}):Play()
+end
+
+function G1.TweenTransparency (ui, dur, trans)
+	game:GetService("TweenService"):Create(ui, TweenInfo.new(dur), {BackgroundTransparency = trans}):Play()
+end
+
+function G1.TweenSize(ui, dur, size)
+	game:GetService("TweenService"):Create(ui, TweenInfo.new(dur), {Size = size}):Play()
+end
+
+function G1.UIGradient(parent, color1, color2, rot)
+	local gradient = Instance.new("UIGradient")
+	gradient.Color = ColorSequence.new(color1, color2)
+	gradient.Rotation = rot
+	gradient.Parent = parent
+	return gradient
+end
+
+return G1
