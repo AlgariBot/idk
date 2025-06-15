@@ -1,4 +1,6 @@
--- G1 function v0.2.1
+--[[ G1 function v0.2.2
+- send key event
+]]
 
 local G1 = {}
 
@@ -85,6 +87,10 @@ UserInputService.InputChanged:Connect(function(input)
 		update(input)  
 	end  
 end)  
+end
+
+function G1.SendKey(key)
+	game:GetService("VirtualInputManager"):SendKeyEvent(true,key,false,game)
 end
 
 return G1
