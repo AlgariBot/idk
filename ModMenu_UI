@@ -100,6 +100,7 @@ Icon_Button.MouseButton1Click:Connect(function()
 	Header_Frame.Visible = true
 	Icon_Button.Visible = false
 	Icon_Button.BackgroundTransparency = 0
+	Icon_Button.ImageTransparency = 0
 end)
 
 Minimize_Button.MouseButton1Click:Connect(function()
@@ -111,6 +112,7 @@ Hide_Button.MouseButton1Click:Connect(function()
 	Header_Frame.Visible = false
 	Icon_Button.Visible = true
 	Icon_Button.BackgroundTransparency = 1
+	Icon_Button.ImageTransparency = 1
 end)
 
 local Scroll_Frame = Instance.new("ScrollingFrame")
@@ -126,7 +128,7 @@ Scroll_Frame.BackgroundTransparency = 1
 local List_Layout = Instance.new("UIListLayout")
 List_Layout.HorizontalAlignment = "Center"
 List_Layout.SortOrder = "LayoutOrder"
-List_Layout.Padding = UDim.new(0, 0)
+List_Layout.Padding = UDim.new(0, 2)
 List_Layout.Parent = Scroll_Frame
 
 local modmen = {}
@@ -225,7 +227,7 @@ function modmen.category(Parent_Frame, Name)
 	local Category_Layout = Instance.new("UIListLayout")
 	Category_Layout.HorizontalAlignment = "Center"
 	Category_Layout.SortOrder = "LayoutOrder"
-	Category_Layout.Padding = UDim.new(0, 0)
+	Category_Layout.Padding = UDim.new(0, 2)
 	Category_Layout.Parent = Category_Container
 
 	Category_Button.MouseButton1Click:Connect(function()
