@@ -210,7 +210,7 @@ function modmen.category(Parent_Frame, Name)
 	Category_Button.Text = "▽  " .. Name .. "  ▽"
 	Category_Button.TextColor3 = Rgb(255, 255, 255)
 	Category_Button.BackgroundTransparency = 0
-	Category_Button.Font = "BuilderSans"
+	Category_Button.Font = "Arial"
 	Category_Button.TextSize = 15
 	Category_Button.Parent = Parent_Frame
 
@@ -246,16 +246,16 @@ end
 
 function modmen.button(Parent, Text)
 	local Click_Button = Instance.new("TextButton")
-	Click_Button.Size = UDim2.new(1, 0, 0, 20)
-	Click_Button.BackgroundColor3 = Rgb(41, 60, 74)
+	Click_Button.Size = UDim2.new(1, 0, 0, 26)
+	Click_Button.BackgroundColor3 = Rgb(49, 74, 93)
 	Click_Button.BorderSizePixel = 0
 	Click_Button.Text = "  " .. Text
 	Click_Button.TextColor3 = Rgb(255, 255, 255)
 	Click_Button.BackgroundTransparency = 0
-	Click_Button.Font = "BuilderSans"
+	Click_Button.Font = "Arial"
 	Click_Button.TextXAlignment = "Left"
 	Click_Button.TextWrapped = true
-	Click_Button.TextSize = 13
+	Click_Button.TextSize = 14
 	Click_Button.Parent = Parent
 	return {Click_Button}
 end
