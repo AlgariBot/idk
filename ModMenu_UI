@@ -120,6 +120,7 @@ Scroll_Frame.BorderSizePixel = 0
 Scroll_Frame.Parent = Background_Frame
 Scroll_Frame.AutomaticCanvasSize = "Y"
 Scroll_Frame.ScrollBarThickness = 0
+Scroll_Frame.CanvasSize = UDim2.new(0,0,0,0)
 Scroll_Frame.BackgroundTransparency = 1
 
 local List_Layout = Instance.new("UIListLayout")
@@ -196,10 +197,10 @@ function modmen.toggle(Parent_Frame, Text)
 		end
 	end)
 
-	return {Toggle_Button, Is_Toggled}
+	return {Toggle_Button}
 end
 
-function modmen.category(Name, Parent_Frame)
+function modmen.category(Parent_Frame, Name)
 	local Category_Button = Instance.new("TextButton")
 	Category_Button.Size = UDim2.new(1, 0, 0, 30)
 	Category_Button.BackgroundColor3 = Rgb(24, 40, 49)
