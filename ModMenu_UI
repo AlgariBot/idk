@@ -272,6 +272,7 @@ function modmen.label(Parent, Text)
 	Label.TextYAlignment = "Top"
 	Label.AutomaticSize = "Y"
 	Label.Parent = Parent
+	return {Label}
 end
 
 function modmen.icon(Img)
