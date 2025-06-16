@@ -287,4 +287,4 @@ function modmen.guiname(Text)
 	Modmenu_Gui.Name = Text
 end
 
-return {modmen, Scroll_Frame, Modmenu_Gui}
+return {modmen, Scroll_Frame, Modmenu_Gui, Background_Frame}
