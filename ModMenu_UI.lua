@@ -155,7 +155,7 @@ function modmen.toggle(Parent_Frame, Text)
 	Toggle_Label.Text = "  " .. Text
 	Toggle_Label.TextColor3 = Color3.new(255, 255, 255)
 	Toggle_Label.BackgroundTransparency = 1
-	Toggle_Label.Font = "Arial"
+	Toggle_Label.Font = "BuilderSans"
 	Toggle_Label.TextSize = 12
 	Toggle_Label.TextWrapped = true
 	Toggle_Label.TextXAlignment = "Left"
@@ -210,8 +210,8 @@ function modmen.category(Parent_Frame, Name)
 	Category_Button.Text = "▽  " .. Name .. "  ▽"
 	Category_Button.TextColor3 = Rgb(255, 255, 255)
 	Category_Button.BackgroundTransparency = 0
-	Category_Button.Font = "Arial"
-	Category_Button.TextSize = 15
+	Category_Button.Font = "BuilderSans"
+	Category_Button.TextSize = 14
 	Category_Button.Parent = Parent_Frame
 
 	local Is_Opened = false
@@ -252,7 +252,7 @@ function modmen.button(Parent, Text)
 	Click_Button.Text = "  " .. Text
 	Click_Button.TextColor3 = Rgb(255, 255, 255)
 	Click_Button.BackgroundTransparency = 0
-	Click_Button.Font = "Arial"
+	Click_Button.Font = "BuilderSans"
 	Click_Button.TextXAlignment = "Left"
 	Click_Button.TextWrapped = true
 	Click_Button.TextSize = 14
