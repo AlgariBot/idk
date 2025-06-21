@@ -8,8 +8,21 @@ Modmenu_Gui.Name = "Modmenu_Lib"
 Modmenu_Gui.Parent = game.CoreGui
 
 --[[
+1.03
+changelog:
+(+) improved icon button
+    + icon will enlarge when touched
+    + transparent icon and image
+    + editable icon corner
+    + added icon outline (can be colored)
+(F) fixed version name position
+
+--soon--
+(?) settings
+(?) ui customization
+
 Open source library
-- Android Mod Menu (AMM)
+• Android Mod Menu (AMM)
 - .type("text") = type
 - .category(parent,"text")[1] = category
 - .toggle(parent,"text")[1].MouseButton1... = toggle function
@@ -19,6 +32,8 @@ Open source library
 - .name("modded by") = name of this script
 - .guiname("screengui") = gui name
 - .version("text") = version name
+- .iconcorner(UDim.new(0,0))
+- .iconline(value,Color3.fromRGB(0,0,0)
 
 http[1] = library main
 http[2] = main scrolling ui
@@ -58,7 +73,7 @@ Name_Label.Parent = Header_Frame
 
 local Version_Label = Instance.new("TextLabel")
 Version_Label.Size = UDim2.new(1, 0, 0.2, 0)
-Version_Label.Position = UDim2.new(0, 0, 0.78, 0)
+Version_Label.Position = UDim2.new(0, 0, 0.76, 0)
 Version_Label.Text = "UI made by AlgariBot"
 Version_Label.TextColor3 = Theme_Color
 Version_Label.BackgroundTransparency = 1
@@ -106,10 +121,10 @@ Icon_Button.Position = UDim2.new(0.2, 0, 0.2, 0)
 Icon_Button.BackgroundColor3 = Rgb(0, 0, 0)
 Icon_Button.ImageColor3 = Rgb(255, 255, 255)
 Icon_Button.Image = "rbxassetid://72129196095691"
-Icon_Button.ImageTransparency = 0
+Icon_Button.ImageTransparency = 0.2
 Icon_Button.ScaleType = "Fit"
 Icon_Button.Parent = Modmenu_Gui
-Icon_Button.BackgroundTransparency = 0
+Icon_Button.BackgroundTransparency = 0.5
 Icon_Button.Visible = false
 Icon_Button.Draggable = true
 
@@ -117,25 +132,19 @@ G1.UICorner(Icon_Button, UDim.new(1, 0))
 
 Icon_Button.AnchorPoint = Vector2.new(0.5, 0.5)
 
-local add = 6
-local big = UDim2.new(0, Icon_Button.Size.X.Offset + add, 0, Icon_Button.Size.Y.Offset + add)
-
 Icon_Button.MouseEnter:Connect(function()
-	Icon_Button:TweenSize(big, "Out", "Linear", 0.1, true)
+	Icon_Button:TweenSize(UDim2.new(0, 50, 0, 50), "Out", "Linear", 0.1, true)
 end)
 
 Icon_Button.MouseLeave:Connect(function()
-	Icon_Button:TweenSize(
-		UDim2.new(0, Icon_Button.Size.X.Offset - add, 0, Icon_Button.Size.Y.Offset - add),
-		"Out", "Linear", 0.1, true
-	)
+	Icon_Button:TweenSize(UDim2.new(0, 40, 0, 40), "Out", "Linear", 0.1, true)
 end)
 
 Icon_Button.MouseButton1Click:Connect(function()
 	Header_Frame.Visible = true
 	Icon_Button.Visible = false
-	Icon_Button.BackgroundTransparency = 0
-	Icon_Button.ImageTransparency = 0
+	Icon_Button.BackgroundTransparency = 0.5
+	Icon_Button.ImageTransparency = 0.2
 end)
 
 Minimize_Button.MouseButton1Click:Connect(function()
@@ -324,6 +333,14 @@ end
 
 function modmen.version(txt)
 	Version_Label.Text = txt
+end
+
+function modmen.iconcorner(vl)
+	G1.UICorner(Icon_Button,vl))
+end
+
+function modmen.iconline(vl,col)
+	G1.UIStroke(Icon_Button,vl,col)
 end
 
 return {modmen, Scroll_Frame, Modmenu_Gui, Background_Frame}
