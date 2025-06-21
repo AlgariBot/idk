@@ -7,6 +7,25 @@ local Modmenu_Gui = Instance.new("ScreenGui")
 Modmenu_Gui.Name = "Modmenu_Lib"
 Modmenu_Gui.Parent = game.CoreGui
 
+--[[
+Open source library
+- Android Mod Menu (AMM)
+- .type("text") = type
+- .category(parent,"text")[1] = category
+- .toggle(parent,"text")[1].MouseButton1... = toggle function
+- .button(parent,"text")[1].MouseButton1... = buttons
+- .label(parent,"text") = just a text
+- .icon(12345) = icon of this script
+- .name("modded by") = name of this script
+- .guiname("screengui") = gui name
+- .version("text") = version name
+
+http[1] = library main
+http[2] = main scrolling ui
+http[3] = gui
+http[4] = main background (you can change it Y size)
+]]
+
 local Header_Frame = Instance.new("Frame")
 Header_Frame.Size = UDim2.new(0, 250, 0, 40)
 Header_Frame.Position = UDim2.new(0.05, 0, 0.1, 0)
@@ -40,7 +59,7 @@ Name_Label.Parent = Header_Frame
 local Version_Label = Instance.new("TextLabel")
 Version_Label.Size = UDim2.new(1, 0, 0.2, 0)
 Version_Label.Position = UDim2.new(0, 0, 0.78, 0)
-Version_Label.Text = "android mod menu 1.01"
+Version_Label.Text = "UI made by AlgariBot"
 Version_Label.TextColor3 = Theme_Color
 Version_Label.BackgroundTransparency = 1
 Version_Label.Font = "ArialBold"
@@ -285,6 +304,10 @@ end
 
 function modmen.guiname(Text)
 	Modmenu_Gui.Name = Text
+end
+
+function modmen.version(txt)
+	Version_Label.Text = txt
 end
 
 return {modmen, Scroll_Frame, Modmenu_Gui, Background_Frame}
