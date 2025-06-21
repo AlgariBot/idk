@@ -336,7 +336,7 @@ function modmen.version(txt)
 end
 
 function modmen.iconcorner(vl)
-	G1.UICorner(Icon_Button,vl))
+	G1.UICorner(Icon_Button,vl)
 end
 
 function modmen.iconline(vl,col)
