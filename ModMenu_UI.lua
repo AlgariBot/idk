@@ -115,6 +115,22 @@ Icon_Button.Draggable = true
 
 G1.UICorner(Icon_Button, UDim.new(1, 0))
 
+Icon_Button.AnchorPoint = Vector2.new(0.5, 0.5)
+
+local add = 6
+local big = UDim2.new(0, Icon_Button.Size.X.Offset + add, 0, Icon_Button.Size.Y.Offset + add)
+
+Icon_Button.MouseEnter:Connect(function()
+	Icon_Button:TweenSize(big, "Out", "Linear", 0.1, true)
+end)
+
+Icon_Button.MouseLeave:Connect(function()
+	Icon_Button:TweenSize(
+		UDim2.new(0, Icon_Button.Size.X.Offset - add, 0, Icon_Button.Size.Y.Offset - add),
+		"Out", "Linear", 0.1, true
+	)
+end)
+
 Icon_Button.MouseButton1Click:Connect(function()
 	Header_Frame.Visible = true
 	Icon_Button.Visible = false
