@@ -93,8 +93,6 @@ function G1.SendKey(key)
 	game:GetService("VirtualInputManager"):SendKeyEvent(true,key,false,game)
 end
 
-return G1
-
 function G1.UIGrow(data)  
 	local obj = data.parent
 	obj.AnchorPoint = Vector2.new(0.5, 0.5)    
@@ -105,4 +103,6 @@ function G1.UIGrow(data)
 	obj.MouseLeave:Connect(function()    
 		obj:TweenSize(data.normalsize, "Out", "Linear", 0.1, true)    
 	end)  
-en
+end
+
+return G1
