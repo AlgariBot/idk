@@ -330,3 +330,6 @@ end
 
 return {modmen, Scroll_Frame, Modmenu_Gui, Background_Frame}
 -- idk
+--[[
+
+this script sucks lol, it made from scratch without good tool]]
