@@ -278,7 +278,7 @@ function modmen.button(data)
 	Click_Button.Size = UDim2.new(1, 0, 0, 26)
 	Click_Button.BackgroundColor3 = Rgb(49, 74, 93)
 	Click_Button.BorderSizePixel = 0
-	Click_Button.Text = "  " .. data.parent or "  button"
+	Click_Button.Text = "  " .. data.text or "  button"
 	Click_Button.TextColor3 = Rgb(255, 255, 255)
 	Click_Button.BackgroundTransparency = 0
 	Click_Button.Font = "BuilderSans"
