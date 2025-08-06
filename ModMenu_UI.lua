@@ -11,6 +11,10 @@ Modmenu_Gui.Parent = gethui()
 1.04
 changelog:
 (+) Improved functions
+(+) changed CoreGui to gethui
+  - gui detection removed 
+    > adonis
+  • caused by adonis anticheat (coregui detection)
 
 --never--
 (?) settings
