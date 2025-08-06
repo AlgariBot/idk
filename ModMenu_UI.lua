@@ -5,35 +5,16 @@ local G1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlgariBot/
 
 local Modmenu_Gui = Instance.new("ScreenGui")
 Modmenu_Gui.Name = "Modmenu_Lib"
-Modmenu_Gui.Parent = game.CoreGui
+Modmenu_Gui.Parent = gethui()
 
 --[[
-1.03
+1.04
 changelog:
-(+) improved icon button
-    + icon will enlarge when touched
-    + transparent icon and image
-    + editable icon corner
-    + added icon outline (can be colored)
-(F) fixed version name position
+(+) Improved functions
 
---soon--
+--never--
 (?) settings
 (?) ui customization
-
-Open source library
-• Android Mod Menu (AMM)
-- .type("text") = type
-- .category(parent,"text")[1] = category
-- .toggle(parent,"text")[1].MouseButton1... = toggle function
-- .button(parent,"text")[1].MouseButton1... = buttons
-- .label(parent,"text") = just a text
-- .icon(12345) = icon of this script
-- .name("modded by") = name of this script
-- .guiname("screengui") = gui name
-- .version("text") = version name
-- .iconcorner(UDim.new(0,0))
-- .iconline(value,Color3.fromRGB(0,0,0)
 
 http[1] = library main
 http[2] = main scrolling ui
@@ -177,13 +158,13 @@ List_Layout.Parent = Scroll_Frame
 
 local modmen = {}
 
-function modmen.type(Text)
+function modmen.type(data)
 	local Label = Instance.new("TextLabel")
 	Label.Size = UDim2.new(1, 0, 0, 20)
 	Label.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Label.BackgroundColor3 = Rgb(41, 60, 74)
 	Label.BorderSizePixel = 0
-	Label.Text = Text
+	Label.Text = data.text or "The Category"
 	Label.TextColor3 = Rgb(255, 255, 255)
 	Label.BackgroundTransparency = 0
 	Label.Font = "ArialBold"
@@ -191,19 +172,19 @@ function modmen.type(Text)
 	Label.Parent = Scroll_Frame
 end
 
-function modmen.toggle(Parent_Frame, Text)
+function modmen.toggle(data)
 	local Toggle_Label = Instance.new("TextLabel")
 	Toggle_Label.Size = UDim2.new(1, 0, 0, 20)
 	Toggle_Label.BackgroundColor3 = Color3.new(0, 0, 0)
 	Toggle_Label.BorderSizePixel = 0
-	Toggle_Label.Text = "  " .. Text
+	Toggle_Label.Text = data.text or "Toggle"
 	Toggle_Label.TextColor3 = Color3.new(255, 255, 255)
 	Toggle_Label.BackgroundTransparency = 1
 	Toggle_Label.Font = "BuilderSans"
 	Toggle_Label.TextSize = 12
 	Toggle_Label.TextWrapped = true
 	Toggle_Label.TextXAlignment = "Left"
-	Toggle_Label.Parent = Parent_Frame
+	Toggle_Label.Parent = data.parent or nil
 
 	local Toggle_Background = Instance.new("Frame")
 	Toggle_Background.Size = UDim2.new(0.1, 0, 0.6, 0)
@@ -246,17 +227,17 @@ function modmen.toggle(Parent_Frame, Text)
 	return {Toggle_Button}
 end
 
-function modmen.category(Parent_Frame, Name)
+function modmen.category(data)
 	local Category_Button = Instance.new("TextButton")
 	Category_Button.Size = UDim2.new(1, 0, 0, 30)
 	Category_Button.BackgroundColor3 = Rgb(24, 40, 49)
 	Category_Button.BorderSizePixel = 0
-	Category_Button.Text = "▽  " .. Name .. "  ▽"
+	Category_Button.Text = "▽  " .. data.name .. "  ▽" or "▽  nil  ▽"
 	Category_Button.TextColor3 = Rgb(255, 255, 255)
 	Category_Button.BackgroundTransparency = 0
 	Category_Button.Font = "BuilderSans"
 	Category_Button.TextSize = 14
-	Category_Button.Parent = Parent_Frame
+	Category_Button.Parent = data.parent
 
 	local Is_Opened = false
 
@@ -264,7 +245,7 @@ function modmen.category(Parent_Frame, Name)
 	Category_Container.Size = UDim2.new(1, 0, 0, 0)
 	Category_Container.Active = true
 	Category_Container.BackgroundTransparency = 1
-	Category_Container.Parent = Parent_Frame
+	Category_Container.Parent = data.parent
 	Category_Container.Visible = false
 	Category_Container.AutomaticSize = "Y"
 
@@ -288,26 +269,26 @@ function modmen.category(Parent_Frame, Name)
 	return {Category_Container}
 end
 
-function modmen.button(Parent, Text)
+function modmen.button(data)
 	local Click_Button = Instance.new("TextButton")
 	Click_Button.Size = UDim2.new(1, 0, 0, 26)
 	Click_Button.BackgroundColor3 = Rgb(49, 74, 93)
 	Click_Button.BorderSizePixel = 0
-	Click_Button.Text = "  " .. Text
+	Click_Button.Text = "  " .. data.parent or "  button"
 	Click_Button.TextColor3 = Rgb(255, 255, 255)
 	Click_Button.BackgroundTransparency = 0
 	Click_Button.Font = "BuilderSans"
 	Click_Button.TextXAlignment = "Left"
 	Click_Button.TextWrapped = true
 	Click_Button.TextSize = 14
-	Click_Button.Parent = Parent
+	Click_Button.Parent = data.parent
 	return {Click_Button}
 end
 
-function modmen.label(Parent, Text)
+function modmen.label(data)
 	local Label = Instance.new("TextLabel")
 	Label.Size = UDim2.new(0.95, 0, 0, 0)
-	Label.Text = Text
+	Label.Text = data.text or "No Text"
 	Label.TextColor3 = Rgb(255, 255, 255)
 	Label.BackgroundTransparency = 1
 	Label.Font = "BuilderSans"
@@ -315,7 +296,7 @@ function modmen.label(Parent, Text)
 	Label.TextXAlignment = "Left"
 	Label.TextYAlignment = "Top"
 	Label.AutomaticSize = "Y"
-	Label.Parent = Parent
+	Label.Parent = data.parent or nil
 	return {Label}
 end
 
@@ -339,8 +320,8 @@ function modmen.iconcorner(vl)
 	G1.UICorner(Icon_Button,vl)
 end
 
-function modmen.iconline(vl,col)
-	G1.UIStroke(Icon_Button,vl,col)
+function modmen.iconline(data)
+	G1.UIStroke(Icon_Button,data.range,data.color)
 end
 
 return {modmen, Scroll_Frame, Modmenu_Gui, Background_Frame}
